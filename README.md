@@ -1,5 +1,7 @@
 title = breadinterface README
+
 by = breadtech
+
 description = getting to know breadinterface in one minute
 
 mod-date = Date( 10/19/13 )
