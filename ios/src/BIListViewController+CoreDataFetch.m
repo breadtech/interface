@@ -10,6 +10,7 @@
 
 @implementation BIListViewController (CoreDataFetch)
 @dynamic frc;
+@dynamic moc;
 
 #pragma mark - Fetching
 

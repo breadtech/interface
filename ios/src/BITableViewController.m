@@ -21,7 +21,7 @@
     if (!_tableView)
     {
         _tableView = [[UITableView alloc] initWithFrame: self.view.frame
-                                                  style: UITableViewStylePlain];
+                                                  style: self.wantsGroupedStyle];
         _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
         _tableView.dataSource = self;
@@ -51,8 +51,6 @@
 
 - (void)setupUI
 {
-
-    
     [self.view addSubview: self.tableView];
     
     [super setupUI];
@@ -65,4 +63,11 @@
     [super updateUI];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear: YES];
+    
+    NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath: ip animated: YES];
+}
 @end

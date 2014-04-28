@@ -10,4 +10,5 @@
 
 @interface UIBarButtonItem (borderlessButtons)
 + (UIBarButtonItem *)barItemWithImage:(UIImage *)image target:(id)target action:(SEL)action;
++ (UIBarButtonItem *)barButtonItemWithUnicode:(NSString *)u_string target:(id)target action:(SEL)action;
 @end

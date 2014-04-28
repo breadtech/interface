@@ -12,5 +12,8 @@
 @interface BIListViewController (CoreDataFetch) <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *frc;
+@property (nonatomic, strong) NSManagedObjectContext *moc;
+
+- (void)performFetch;
 
 @end

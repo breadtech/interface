@@ -44,7 +44,7 @@
 {
     if (!_tl)
     {
-        _tl = self.backButton;
+        _tl = self.noButton;
     }
     return _tl;
 }
@@ -62,7 +62,7 @@
 {
     if (!_tr)
     {
-        _tr = self.doneButton;
+        _tr = self.noButton;
     }
     return _tr;
 }
@@ -81,7 +81,7 @@
 {
     if (!_bl)
     {
-        _bl = self.shareButton;
+        _bl = self.noButton;
     }
     return _bl;
 }
@@ -99,7 +99,7 @@
 {
     if (!_br)
     {
-        _br = self.addButton;
+        _br = self.noButton;
     }
     return _br;
 }
@@ -120,20 +120,34 @@
 {
     if (!_addButton)
     {
-        _addButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed: @"add.icon.png"]
-                                                target: self
-                      
-                                                action: @selector( addButtonPressed:)];
+        _addButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"plus"]
+                                                         target: self
+                                                         action: @selector( addButtonPressed:)];
     }
     return _addButton;
+}
+
+- (UIBarButtonItem *)archiveButton
+{
+    if (!_archiveButton)
+
+    {
+        _archiveButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"folder"]
+                                                            target: self
+                          
+                                                            action: @selector( archiveButtonPressed:)];
+    }
+    return _archiveButton;
 }
 
 - (UIBarButtonItem *)backButton
 {
     if (!_backButton)
     {
-        _backButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed: @"back.icon.png"]
-                                                 target: self action: @selector( backButtonPressed:)];
+        _backButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"back"]
+                                                         target: self
+                                                         action: @selector( backButtonPressed:)];
+
     }
     return _backButton;
     
@@ -155,9 +169,10 @@
 {
     if (!_cancelButton)
     {
-        _cancelButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed: @"close.icon.png"]
-                                                   target: self
-                                                   action: @selector( cancelButtonPessed:)];
+        _cancelButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"close"]
+                                                           target: self
+                                                           action: @selector( cancelButtonPressed:)];
+
     }
     return _cancelButton;
 }
@@ -166,9 +181,10 @@
 {
     if (!_closeButton)
     {
-        _closeButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed: @"close.icon.png"]
-                                                  target: self
-                                                  action: @selector( closeButtonPessed:)];
+        _closeButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"close"]
+                                                          target: self
+                                                          action: @selector( closeButtonPressed:)];
+
     }
     return _closeButton;
 }
@@ -177,8 +193,10 @@
 {
     if (!_deleteButton)
     {
-        _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemTrash target: self action: @selector( deleteButtonPressed:)];
-        _deleteButton.style = UIBarButtonItemStylePlain;
+        _deleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemTrash
+                                           target: self
+                                           action: @selector( deleteButtonPressed:)];
+;
     }
     return _deleteButton;
     
@@ -188,11 +206,31 @@
 {
     if (!_doneButton)
     {
-        _doneButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed:@"check.icon.png"]
-                                                 target: self
-                                                 action: @selector( doneButtonPressed:)];
+        _doneButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"done"]
+                                                         target: self
+                                                         action: @selector( doneButtonPressed:)];
     }
     return _doneButton;
+}
+
+- (UIBarButtonItem *)helpButton
+{
+    if (!_helpButton)
+    {
+        _helpButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"help"] target: self action: @selector( helpButtonPressed:)];
+    }
+    return _helpButton;
+}
+
+- (UIBarButtonItem *)infoButton
+{
+    if (!_infoButton)
+    {
+        _infoButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"info"]
+                                                         target: self
+                                                         action: @selector( infoButtonPressed:)];
+    }
+    return _infoButton;
 }
 
 - (UIBarButtonItem *)noButton
@@ -208,9 +246,13 @@
 {
     if (!_menuButton)
     {
+        _menuButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"menu"]
+                                                         target: self
+                                                         action: @selector( menuButtonPressed:)];
+        /*
         _menuButton = [UIBarButtonItem barItemWithImage: [UIImage imageNamed: @"menu.icon.png"]
                                                   target: self
-                                                  action: @selector( menuButtonPressed:)];
+                                                  action: @selector( menuButtonPressed:)];*/
     }
     return _menuButton;
 }
@@ -225,14 +267,24 @@
     return _searchButton;
 }
 
+- (UIBarButtonItem *)settingsButton
+{
+    if (!_settingsButton)
+    {
+        _settingsButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"gear"]
+                                                     target: self
+                                                     action: @selector( settingsButtonPressed:)];
+    }
+    return _settingsButton;
+}
+
 - (UIBarButtonItem *)shareButton
 {
     if (!_shareButton)
     {
-        _shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAction
-                                                                     target:self
-                                                                     action: @selector( shareButtonPressed:)];
-        _shareButton.style = UIBarButtonItemStylePlain;
+        _shareButton = [UIBarButtonItem barButtonItemWithUnicode: [UnicodeDictionary dictionary][@"share"]
+                                                          target: self
+                                                          action: @selector( shareButtonPressed:)];
     }
     return _shareButton;
 }
@@ -262,15 +314,19 @@
 #pragma mark - button calls
 
 - (void)addButtonPressed:(id)sender {}
+- (void)archiveButtonPressed:(id)sender {}
 - (void)backButtonPressed:(id)sender { [self popVC]; }
 - (void)bottomMiddleButtonPessed:(id)sender {}
-- (void)cancelButtonPessed:(id)sender { [self cancel: sender]; }
-- (void)closeButtonPessed:(id)sender { [self close: sender]; }
+- (void)cancelButtonPressed:(id)sender { [self cancel: sender]; }
+- (void)closeButtonPressed:(id)sender { [self close: sender]; }
 - (void)deleteButtonPressed:(id)sender { [self confirmDelete: sender]; }
 - (void)doneButtonPressed:(id)sender {}
+- (void)helpButtonPressed:(id)sender {}
+- (void)infoButtonPressed:(id)sender {}
 - (void)menuButtonPressed:(id)sender {}
 - (void)searchButtonPressed:(id)sender {}
 - (void)searchButtonLongPressed:(id)sender {}
+- (void)settingsButtonPressed:(id)sender {}
 - (void)shareButtonPressed:(id)sender { [self showShareMenu: sender]; }
 
 #pragma mark - convenience methods methods
@@ -398,6 +454,13 @@
     }
 }
 
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.subtype == UIEventSubtypeMotionShake)
+    {
+        [self showShareMenu: nil];
+    }
+}
 
 #pragma mark - breadinterface lifecycle methods
 
@@ -431,6 +494,8 @@
 - (void)setupUI
 {
     [self setupToolbars];
+    
+    [self updateUI];
 }
 
 - (void)updateModel {}
@@ -511,6 +576,11 @@
 - (void)dealloc
 {
     [self cleanup];
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 @end

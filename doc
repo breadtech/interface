@@ -1,7 +1,19 @@
-GettingStarted
-1. Choose a platform
-- for now, breadinterface supports implementation on ios objective-c and java. Java implementation is currently incomplete
-A. iOS
+$<Book> BIDoc:
+title = breadinterface Documentation
+by = breadtech
+description = the full documentation to breadinterface
+
+last modified = Date(10/19/2013)
+
+chapters:
+1. Introduction
+- Welcome to breadinterface. 
+- breadinterface defines a new way to write programs 
+  1. set up the view (or UI) and models
+  2. define actions for each controller to perform on the model 
+  3. update the UI
+
+2. Getting Started
 	1. Create Xcode Project
 	- type: empty (NOT single view)
 
@@ -47,8 +59,16 @@ A. iOS
 
 	5. Run the project
 	- choose your target and run!
-B. Java
-    - the breadinterface framework is not complete yet and on its first release, we will provide 
-    instructions on how to implement it in your Swing Java. Future implementation of Android Java and 
-    cross compatability planned.
+
+3. "An Indepth Look"
+	1. "What is breadinterface"
+	- An interface is the mechanism that a user uses to interact with a program. 
+		- The most common one we know of is the Graphic User Interface (GUI)
+			- using graphical elements to represent data in a model
+	- breadinterface is another type of user interface that enforces a 2 toolbar, 4 button rule. There will always be a top bar and a bottom bar, and one button on each ends of each bar, totaling in four buttons. Each button is given an action that the program will perform on the data. The data is represented in some way on the 
+	2. "Inheritance Structure"
+	3. 
+4. "Using BI"
+5. "API User Guide"
+6. "Index"
 

@@ -23,26 +23,34 @@
 
 // UIBarButtonItem convenience properties
 @property (nonatomic, strong) UIBarButtonItem *addButton;
+@property (nonatomic, strong) UIBarButtonItem *archiveButton;
 @property (nonatomic, strong) UIBarButtonItem *backButton;
 @property (nonatomic, strong) UIBarButtonItem *bottomMiddleButton;
 @property (nonatomic, strong) UIBarButtonItem *cancelButton;
 @property (nonatomic, strong) UIBarButtonItem *closeButton; 
 @property (nonatomic, strong) UIBarButtonItem *deleteButton;
 @property (nonatomic, strong) UIBarButtonItem *doneButton;
+@property (nonatomic, strong) UIBarButtonItem *helpButton;
+@property (nonatomic, strong) UIBarButtonItem *infoButton;
 @property (nonatomic, strong) UIBarButtonItem *menuButton;
 @property (nonatomic, strong) UIBarButtonItem *noButton; // a blank button
 @property (nonatomic, strong) UIBarButtonItem *searchButton;
+@property (nonatomic ,strong) UIBarButtonItem *settingsButton;
 @property (nonatomic, strong) UIBarButtonItem *shareButton;
 
 // calls:
 - (void)addButtonPressed:(id)sender;
+- (void)archiveButtonPressed:(id)sender;
 - (void)backButtonPressed:(id)sender;
 - (void)bottomMiddleButtonPessed:(id)sender;
-- (void)cancelButtonPessed:(id)sender;
-- (void)closeButtonPessed:(id)sender;
+- (void)cancelButtonPressed:(id)sender;
+- (void)closeButtonPressed:(id)sender;
 - (void)deleteButtonPressed:(id)sender;
 - (void)doneButtonPressed:(id)sender;
+- (void)helpButtonPressed:(id)sender;
+- (void)infoButtonPressed:(id)sender;
 - (void)menuButtonPressed:(id)sender;
+- (void)settingsButtonPressed:(id)sender;
 - (void)searchButtonPressed:(id)sender;
 - (void)searchButtonLongPressed:(id)sender;
 - (void)shareButtonPressed:(id)sender;

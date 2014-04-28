@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "BIInfoCell.h"
 
 @interface BIInfoLayout : NSObject <UITableViewDataSource>
@@ -36,6 +37,13 @@
 @property (nonatomic, strong) NSDictionary *layoutDictionary;
 
 - (NSIndexPath *)indexPathForKey:(NSString *)key;
+
+/*
+- (UITextField *)textFieldForKey:(NSString *)key;
+- (UITextField *)textField2ForKey:(NSString *)key;
+- (UITextView *)textViewForKey:(NSString *)key;
+- (UILabel *)labelForKey:(NSString *)key;
+*/
 
 // convenience class methods
 + (BIInfoLayout *)defaultLayout;

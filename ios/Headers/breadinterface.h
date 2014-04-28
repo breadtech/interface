@@ -11,8 +11,9 @@
 #import "BIWebViewController.h"
 #import "BITableViewController.h"
 #import "BIListViewController.h"
-#import "BIListViewController+CoreDataFetch.h"
 #import "BIInfoLayout.h"
 #import "BIInfoViewController.h"
+
+#import "UnicodeDictionary.h"
 
 #import "Version.h"

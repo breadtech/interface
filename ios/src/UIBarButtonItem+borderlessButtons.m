@@ -28,4 +28,17 @@
     return b;
 }
 
++ (UIBarButtonItem *)barButtonItemWithUnicode:(NSString *)u_string target:(id)target action:(SEL)action
+{
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeCustom];
+    
+    [button setFrame: CGRectMake( 0.0, 0.0, 30.0, 30.0)];
+    [button addTarget: target action: action forControlEvents: UIControlEventTouchUpInside];
+    [button setShowsTouchWhenHighlighted: YES];
+    [button setTitle: u_string forState: UIControlStateNormal];
+    
+    UIBarButtonItem *b = [[UIBarButtonItem alloc] initWithCustomView: button];
+    return b;
+}
+
 @end

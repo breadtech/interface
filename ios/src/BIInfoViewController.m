@@ -26,6 +26,11 @@
     return _infoLayout;
 }
 
+- (BOOL)wantsGroupedStyle
+{
+    return YES;
+}
+
 #define DATEPICKER_HEIGHT 280.0f
 
 + (UIDatePicker *)aDatePicker:(CGFloat)width target:(id)target action:(SEL)action
@@ -77,19 +82,17 @@
 
 - (void)setupUI
 {
-    if (self.navigationController.navigationController) // if this is a modal controller
-        self.navigationItem.leftBarButtonItem = self.closeButton;
-    else self.navigationItem.leftBarButtonItem = self.cancelButton;
-    self.navigationItem.rightBarButtonItem = self.doneButton;
-
-    [super setupUI];
+    self.tl = self.noButton;
+    self.br = self.closeButton;
+    self.tr = self.doneButton;
     
     self.tableView.dataSource = self.infoLayout;
+    
+    [super setupUI];
 }
 
 - (void)doneButtonPressed:(id)sender
 {
-    if (self.delegate) [self.delegate infoViewController: self didSaveWithInfo: self.infoLayout.layoutDictionary];
 }
 
 - (void)wantsToPickValueForCellAtIndexPath:(NSIndexPath *)ip

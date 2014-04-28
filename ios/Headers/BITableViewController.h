@@ -9,5 +9,6 @@
 #import "BIViewController.h"
 
 @interface BITableViewController : BIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic) BOOL wantsGroupedStyle;
 @end
