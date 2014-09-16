@@ -1,0 +1,25 @@
+##
+# title: GtkWrapper
+# by: Brian Kim
+# description:
+#  - a class that wraps around a gtk object
+#  - holds a reference to the obj and it's parent obj
+#  - defines an overrideable method called gtk() where all the gtk 
+#    related set up is done
+#  - defines overrideable methods start() and stop() to signify 
+#    to the object that it should start or stop.
+#    
+
+class GtkWrapper():
+  def __init__( self, parent, obj ):
+    self.parent = parent
+    self.obj = obj
+
+  def gtk( self ):
+    pass
+
+  def start( self ):
+  	pass
+
+  def stop( self ):
+  	pass

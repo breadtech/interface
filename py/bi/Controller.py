@@ -1,14 +1,18 @@
 ##
-# title = bi.Controller.py
+# title = Controller.py
 # by = Brian Kim
-# description = this module contains all classes
-#   related to the breadinterface controller
+# description = the breadinterface controller
+#  manages a frame (view) and the actions that should
+#  trigger changes in some model
 #
 
-class BIController():
-  def segue( self, mode, target ):
+class Controller():
+  def __init__( self, window, title, frame_info=Frame.DefaultFrameInfo, main_view=DefaultView ):
+  	self.title = title 
+    self.frame = Frame( window, title, frame_info )
+    self.gtk()
 
-  def __init__( self, title, frameInfo, mainView ):
-    self._title = title
-    self._frame = BIFrame( frameInfo )
-    self._main = mainView
+  def gtk( self ):
+    self.frame.gtk(window)
+
+  def segue( self, mode, target ):
