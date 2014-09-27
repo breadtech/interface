@@ -6,6 +6,10 @@
 #    with breadinterface...
 # 
 
+import pygtk
+pygtk.require('2.0')
+import gtk
+
 class prototype():
   
   # app
@@ -96,7 +100,7 @@ class prototype():
     gtk.main()
 
 def main():
-  bi = breadinterface()
+  bi = prototype()
   bi.start()
 
 if __name__ == "__main__":
