@@ -10,24 +10,33 @@
 #  should be able to be used pretty transparently
 # 
 
-class Navigator( breadinterface, GtkWrapper ):
-  def __init__( self, window, root_class ):
-    GtkWrapper.__init__( self, window, window )
+from breadinterface import lifecycle
+from GtkWrapper import GtkWrapper
+
+class Navigator( lifecycle, GtkWrapper ):
+
+
+  def __init__( self, root ):
+    GtkWrapper.__init__( self, Window() )
+    root.nav = self
     self.ctrlrs = { root }
     
   """ the current controller on screen """
   def current( self ):
-    return self.size() - 1
+    return self.ctrlrs[self.size() - 1]
 
-  def push( self, controller_class ):
+  def push( self, controller ):
     # pause the top controller
     self.current().stop()
+
+    # create reference to nav
+    controller.nav = self
 
     # add the controller to the stack
     self.ctrlrs.append( controller )
 
     # start the new top controller
-    self.controller.start()
+    self.start()
 
   def pop( self ):
     # remove the top controller from the stack
@@ -37,7 +46,7 @@ class Navigator( breadinterface, GtkWrapper ):
     y.cleanup()
 
     # start the next controller in the stack
-    self.current().start()
+    self.start()
 
   def root( self ):
     # simply the first controller
@@ -49,5 +58,10 @@ class Navigator( breadinterface, GtkWrapper ):
                       
   def start( self ):
     # starts the navigator
+    self.obj.add( self.current() )
     self.current().start()
 
+  def stop( self ):
+    # stop the navigator
+    self.current().stop()
+    self.obj.remove( self.current().obj )

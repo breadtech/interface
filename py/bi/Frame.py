@@ -7,60 +7,95 @@
 #     MenuFrame (two bar), and ActionFrame (three bar)
 #
 
-import GtkWrapper
+import pygtk
+pygtk.require('2.0')
+import gtk
 
-class Frame(breadinterface,GtkWrapper):
+from breadinterface import lifecycle
+from GtkWrapper import GtkWrapper
+
+class Frame(lifecycle,GtkWrapper):
 
   ##
-  # the inner info class
+  # inner info class
   #
-  class FrameInfo():
-    def __init__( self, n_bars, bars ):
-      self.n_bars = n_bars
-      self.top = bar_info[0]
-      self.middle = bar_info[1]
-      self.bottom = bar_info[2]
+  class Info():
+    def __init__( self, bars ):
+      self.n = len(bars)
+      if self.n < 1 or self.n > 3:
+        raise Execption( 'invalid number of bar infos provided' )
+      
+      self.bars = bars
 
   ##
   # constructing the frame
   #
-  def __init__( self, window, title, frame_info ):
+  def __init__( self, frame_info ):
 
-    GtkWrapper.__init__( self, window, )
-    self.n = frame_info.n_bars
-    self.top = Bar( frame_info.top )
-    if self.frame_info.middle:
-      self.middle = Bar( frame_info.middle )
-    if self.frame_info.bottom:
-      self.bottom = Bar( frame_info.bottom )
+    GtkWrapper.__init__( self, gtk.VBox() )
+    
+    # number of bars
+    self.n = frame_info.n
+  
+    # list of bars
+    self.bars = {}
+    for i in range( self.n ):
+      self.bars.append( Bar(frame_info.bars[i]) )
+    
+    # setup the gtk stuff
     self.gtk()
 
   ##
   # setting up the frame with gtk
   #
   def gtk( self ):
-    self.top.gtk()
-    if self.middle:
-      self.middle.gtk()
-    if self.bottom:
-      self.bottom.gtk()
+    for bar in self.bars:
+      bar.gtk()
+      self.obj.add( bar.obj )
 
   ##
   # cleanup 
   # 
   def cleanup( self ):
-    pass
+    for bar in self.bars:
+      bar.cleanup()
+    self.bars = None
+    self.obj = None
 
   ##
   # start
   #
   def start( self ):
-    pass
+    for bar in self.bars:
+      bar.start()
 
   ##
+  # stop
+  # 
+  def stop( self ):
+    for bar in self.bars:
+      bar.stop()
+
+  ##
+  # pause
   #
+  def pause( self ):
+    for bar in self.bars:
+      bar.pause()
 
+  ##
+  # resume
+  #
+  def resume( self ):
+    for bar in self.bars:
+      bar.resume()
 
+  ##
+  # update
+  #
+  def update( self ):
+    for bar in self.bars:
+      bar.update()
 
 ##
 # BareFrame: the one bar frame class
@@ -80,4 +115,5 @@ class BareFrame( Frame ):
       Frame.FrameInfo.__init__( self, 1, [ info, None, None ] )
 
   def __init__( self, window, title, left_button_info, right_button_info ):
+    pass
     

@@ -27,7 +27,7 @@ class prototype():
   tl_label = unichr(9776)     # menu
   tm_label = "breadinterface" # title
   tr_label = "i"				# info
-  bl_label = unichr(2212)		  # remove
+  bl_label = gtk.STOCK_REMOVE # remove
   bm_label = "these buttons don't do anything"
   br_label = "+"				# add
 

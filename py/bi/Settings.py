@@ -6,11 +6,13 @@
 
 class Settings():
   def __init__( self ):
+    self.dict = { 'app_name' : 'breadinterface' }
 
   def get_app_name( self ):
+    return self.dict['app_name']
     
   def set_app_name( self, app_name ):
-    self.dict = { 'app_name' : app_name }
+    self.dict['app_name'] = app_name
 
   def set( self, key, value, override=False ):
     try:
