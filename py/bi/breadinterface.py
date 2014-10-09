@@ -169,7 +169,8 @@ class Controller( buttons, lifecycle ):
   #
 
   def __init__( self, title='breadinterface', view=gtk.TreeView() ):
-
+    self.title = title
+  
     # controller
     self.frame = gtk.VBox()
   
@@ -234,6 +235,17 @@ class Controller( buttons, lifecycle ):
 
   def stop( self ):
     pass
+   
+  def update( self ):
+    self.tl.set_label( self.tl_label() )
+    self.tm.set_label( self.tm_label() )
+    self.tr.set_label( self.tr_label() )
+    self.bl.set_label( self.bl_label() )
+    self.bm.set_label( self.bm_label() )
+    self.br.set_label( self.bl_label() )
+
+  def tm_label( self ):
+    return self.title
   
 class PrototypeController( Controller ):
 
