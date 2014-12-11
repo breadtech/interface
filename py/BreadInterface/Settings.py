@@ -66,7 +66,7 @@ class Settings():
   
       try:
         # open the settings file 
-lifecycle        settings_fp = open( settings_path, "r" )
+        settings_fp = open( settings_path, "r" )
       except:
         settings_fp = open( settings_path, "w+" )
         settings_fp.write( 'app_name='+app_name+'\n' )

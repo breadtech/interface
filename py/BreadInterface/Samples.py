@@ -8,8 +8,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-import App
-import Controller
+from App import App
+from Controller import Controller
+from Lifecycle import Lifecycle
 
 class SuitsController( Controller ):
   spade = unichr(9828)
@@ -62,28 +63,22 @@ class PrototypeController( Controller ):
   # breadinterface buttons definition
   #
   def tl_label( self ):
-    #return self._tl_label
-    return '?'	
+    return self._tl_label
 
   def tm_label( self ):
-    #return self._tm_label
-    return 'Sample Controller'
+    return self._tm_label
 	
   def tr_label( self ):
-    #return self._tr_label
-    return unichr(0x2699)
+    return self._tr_label
 
   def bl_label( self ):
-    #return self._bl_label
-    return '+'
+    return self._bl_label
 
   def bm_label( self ):
-    #return self._bm_label
-    return 'by Fee'
+    return self._bm_label
 
   def br_label( self ):
-    #return self._br_label
-    return '-'
+    return self._br_label
 
   def tl_clicked( self, widget ):
     self._tl_label = self.view.entry.get_text()
@@ -134,7 +129,7 @@ class PrototypeController( Controller ):
   ##
   # custom view class definition
   #
-  class PrototypeView( gtk.Alignment, lifecycle ):
+  class PrototypeView( gtk.Alignment, Lifecycle ):
     def __init__( self ):
       gtk.Alignment.__init__( self, 0.4, 0.4, 0.6, 0.6 )
       self.entry = gtk.Entry()

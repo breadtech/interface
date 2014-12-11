@@ -7,18 +7,19 @@
 #   right out of the box.
 #
 
+from Lifecycle import Lifecycle
 from Navigator import Navigator
 from Settings import Settings
 
 ##
 # app class 
 #
-class App( lifecycle ):
+class App( Lifecycle ):
   def __init__( self, root, appName='breadinterface' ):
     # init the app components
     self.settings = Settings(appName)
     self.navigator = Navigator( root )
-    self.navigator.set_title( appName )
+    self.navigator.window.set_title( appName )
 
   def cleanup( self ):
     self.settings.cleanup()

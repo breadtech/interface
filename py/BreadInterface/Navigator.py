@@ -9,8 +9,8 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-import Controller
-import Lifecycle
+from Controller import Controller
+from Lifecycle import Lifecycle
 
 ##
 # navigator class
