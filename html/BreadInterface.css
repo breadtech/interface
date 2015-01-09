@@ -1,0 +1,58 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+.BIFrame{
+  width: 100%;
+  height: 100%;
+}
+
+.BIBar {
+  border: 1px solid grey;
+  background: black;
+  position: fixed;
+  width: 100%;
+  height: 44px;
+}
+
+.BIFrame #top {
+  top: 0px;
+}
+
+.BIFrame #bottom {
+  bottom: 0px;
+}
+
+.BIButton {
+  border: None;
+  background: black;
+  height: 44px;
+  width: 44px;
+  color: white;
+}
+
+.BIBar #left{
+  float: left;
+}
+
+.BIBar #middle {
+  /* middle button does not center and its size is really small*/
+}
+
+.BIBar #right{
+  float: right;
+}
+
+.BIView {
+  padding: 44px 0
+}
+
+#wrapper {
+  margin: 0 auto;
+}
