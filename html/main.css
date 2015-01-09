@@ -1,0 +1,35 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.bar{
+  border: 1px solid grey;
+  background: black;
+}
+
+#tl{
+  border: None;
+  background: black;
+  height: 44px;
+  width: 44px;
+  float: left;
+  color: white;
+}
+
+#tm{
+ border: None;
+ background: black;
+ height: 44px;
+ width: 93%;
+ color:white;
+}
+
+#tr{
+  border: None;
+  background: black;
+  height: 44px;
+  width: 44px;
+  float: right;
+  color: white;
+}
