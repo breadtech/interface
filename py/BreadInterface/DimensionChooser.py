@@ -32,6 +32,7 @@ class DimensionChooser():
   
   def dim_selected( self, button, data ):
     self.delegate.dimension_selected( data )
+    self.w.hide_all()
     gtk.main_quit()
   
   def __init__( self, delegate=Delegate() ):
@@ -41,11 +42,12 @@ class DimensionChooser():
     self.delegate = delegate 
    
     # model
-    msg = "Pick a dimension"
-    self.dims = [(800,600),(320,480)]
+    msg = "Pick a Screen Size"
+    self.dims = [(1280,640),(1024,640),(800,640),(320,568),(320,480)]
   
     # view
     self.w = gtk.Window()
+    self.w.set_title("Screen Size")
     frame = gtk.VBox()
     self.w.add(frame)
     msg_label = gtk.Label(msg)
