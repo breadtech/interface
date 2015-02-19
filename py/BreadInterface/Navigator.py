@@ -11,6 +11,7 @@ import gtk
 
 from Controller import Controller
 from Lifecycle import Lifecycle
+from DimensionChooser import DimensionChooser
 
 ##
 # navigator class
@@ -18,15 +19,33 @@ from Lifecycle import Lifecycle
 class Navigator( Lifecycle ):
 
   #
+  # dimension chooser lifecycle methods
+  #
+  def dimension_selected( self, dim ):
+    self.dim = dim
+    self.finish_init()
+
+  #
   # lifecycle methods
   # 
-  def __init__( self, root ):
+  def __init__( self, root, dim=None ):
+    self.ready = False
+    self.root = root
+    if dim == None:
+      dim_chooser = DimensionChooser(self)
+      dim_chooser.request_dimension()
+    else:
+      self.dim = dim
+      self.finish_init()
+
+  def finish_init( self ):
+    self.ready = True
     self.window = gtk.Window()
-    self.window.set_size_request( 320, 480)
+    self.window.set_size_request( self.dim[0], self.dim[1])
     self.window.connect("delete-event", gtk.main_quit)
 
-    root.nav = self
-    self.ctrlrs = [ root ]
+    self.root.nav = self
+    self.ctrlrs = [ self.root ]
             
   def start_top( self ):
     self.window.add( self.current().frame )
