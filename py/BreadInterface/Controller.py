@@ -35,12 +35,12 @@ class Controller( ButtonLayout, Lifecycle ):
     self.bottom = gtk.HBox()
 
     # bar
-    self.tl = gtk.Button(self.tl_label())
-    self.tm = gtk.Button(self.tm_label())
-    self.tr = gtk.Button(self.tr_label())
-    self.bl = gtk.Button(self.bl_label())
-    self.bm = gtk.Button(self.bm_label())
-    self.br = gtk.Button(self.br_label())
+    self.tl = ButtonLayout.gtk_button(self.tl_label())
+    self.tm = ButtonLayout.gtk_button(self.tm_label())
+    self.tr = ButtonLayout.gtk_button(self.tr_label())
+    self.bl = ButtonLayout.gtk_button(self.bl_label())
+    self.bm = ButtonLayout.gtk_button(self.bm_label())
+    self.br = ButtonLayout.gtk_button(self.br_label())
   
     # fixing the size of the buttons
     self.tl.set_size_request( 44, 44 )
