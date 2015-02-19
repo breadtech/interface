@@ -15,17 +15,21 @@ from Settings import Settings
 # app class 
 #
 class App( Lifecycle ):
-  def __init__( self, root, appName='breadinterface' ):
+  def __init__( self, root, dim=None, appName='BreadInterface' ):
     # init the app components
-    self.settings = Settings(appName)
-    self.navigator = Navigator( root )
-    self.navigator.window.set_title( appName )
+    # self.settings = Settings(appName)
+    self.navigator = Navigator( root, dim )
+    self.appName = appName
 
   def cleanup( self ):
     self.settings.cleanup()
     self.navigator.cleanup()
 
   def start( self ):
+    if not self.navigator.ready:
+      print "Navigator not ready..."
+      return
+    self.navigator.window.set_title( self.appName )
     self.navigator.start()
 
   def resume( self ):
