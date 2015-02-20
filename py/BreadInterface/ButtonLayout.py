@@ -24,17 +24,20 @@ class ButtonLayout():
     # remove the relief
     y.props.relief = gtk.RELIEF_NONE
 
+    # make colors
+    map = y.get_colormap()
+    blk = map.alloc_color("black")
+    wht = map.alloc_color("white")
+
     # set the color style on the label
     label = y.get_child()
     style = label.get_style().copy()
-    style.bg[gtk.STATE_NORMAL] = gtk.gdk.color_parse( "black" ) 
-    style.fg[gtk.STATE_NORMAL] = gtk.gdk.color_parse( "white" ) 
+    style.fg[gtk.STATE_NORMAL] = wht
     label.set_style(style)
      
     # set the color style on the button
     style = y.get_style().copy()
-    style.bg[gtk.STATE_NORMAL] = gtk.gdk.color_parse( "black" ) 
-    style.fg[gtk.STATE_NORMAL] = gtk.gdk.color_parse( "white" ) 
+    style.bg[gtk.STATE_NORMAL] = blk
     y.set_style(style)
 
     # return the button
@@ -78,3 +81,15 @@ class ButtonLayout():
   def br_clicked( self, widget ):
     print 'br clicked'
 
+"""
+ZZ: create a ButtonDescriptionWindow class
+    to show and respond to certain button presses
+
+  # description string
+  def tl_description( self, widget ):
+
+  @staticmethod
+  def show_button_description():
+    w = gtk.Window()
+    w.connect('delete-event', ButtonLayout.button_description_close
+"""
