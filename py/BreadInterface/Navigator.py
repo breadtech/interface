@@ -56,12 +56,6 @@ class Navigator( Lifecycle ):
     self.window.show()
     gtk.main()
 
-  def resume( self ):
-    self.current().resume()
-
-  def pause( self ):
-    self.current().pause()
-
   def stop_top( self ):
     self.window.remove( self.current().frame )
     self.current().stop()
@@ -75,8 +69,8 @@ class Navigator( Lifecycle ):
   # navigation stack methods
   #
 
-  """ the current controller on screen """
   def current( self ):
+    """ the current controller on screen """
     return self.ctrlrs[self.size() - 1]
 
   def push( self, controller ):
@@ -100,7 +94,7 @@ class Navigator( Lifecycle ):
     y = self.ctrlrs.pop()
 
     # destory that controller
-    y.stop()
+    y.cleanup()
 
     # quit the app if that was the last controller
     if self.size() == 0:

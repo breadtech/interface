@@ -114,9 +114,6 @@ class Controller( ButtonLayout, Lifecycle ):
     msg.run()
 
   def start( self ):
-    self.resume()
-
-  def resume( self ):
     self.frame.show_all()
     self.update()
 
@@ -132,9 +129,6 @@ class Controller( ButtonLayout, Lifecycle ):
   def clear( self ):
     pass
 
-  def pause( self ):
-    self.frame.hide_all()
-
   def stop( self ):
-    self.pause()
+    self.frame.hide_all()
   

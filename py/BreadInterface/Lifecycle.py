@@ -15,16 +15,10 @@ class Lifecycle():
   def start( self ):
     pass
     
-  def resume( self ):
-    pass
-
   def update( self ):
     pass
 
   def clear( self ):
-    pass
-
-  def pause( self ):
     pass
 
   def stop( self ):
