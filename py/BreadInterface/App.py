@@ -32,12 +32,6 @@ class App( Lifecycle ):
     self.navigator.window.set_title( self.appName )
     self.navigator.start()
 
-  def resume( self ):
-    self.navigator.resume()
-
-  def pause( self ):
-    self.navigator.pause()
-
   def stop( self ):
     self.navigator.stop()
 
