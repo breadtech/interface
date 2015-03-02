@@ -1,0 +1,3 @@
+import Prototype
+
+Prototype.main()
