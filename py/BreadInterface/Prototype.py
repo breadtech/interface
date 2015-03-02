@@ -12,7 +12,7 @@ import gtk
 from App import App
 from Controller import Controller
 from Lifecycle import Lifecycle
-from views.UnicodePickerView import UnicodePickerView
+from BreadInterface.views.UnicodePickerView import UnicodePickerView
 
 # 
 # a function that will generate a pygtk BI Controller 
@@ -305,7 +305,7 @@ class PrototypeController( Controller ):
       #
       # embed the unicode picker in the view
       self.unicode_view = UnicodePickerView(self)
-      self.unicode_view.show()
+      self.unicode_view.show_all()
    
     def update( self ):
       pass
