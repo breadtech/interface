@@ -21,23 +21,10 @@ class ButtonLayout():
     size = 44 * scale
     y.set_size_request( size, size )
 
-    # remove the relief
-    y.props.relief = gtk.RELIEF_NONE
-
-    # make colors
-    map = y.get_colormap()
-    blk = map.alloc_color("black")
-    wht = map.alloc_color("white")
-
-    # set the color style on the label
-    label = y.get_child()
-    style = label.get_style().copy()
-    style.fg[gtk.STATE_NORMAL] = wht
-    label.set_style(style)
-     
     # set the color style on the button
     style = y.get_style().copy()
-    style.bg[gtk.STATE_NORMAL] = blk
+    style.bg[gtk.STATE_NORMAL] = gtk.gdk.color_parse('#000000')
+    style.bg[gtk.STATE_PRELIGHT] = gtk.gdk.color_parse('#555555')
     y.set_style(style)
 
     # return the button
@@ -80,6 +67,25 @@ class ButtonLayout():
 
   def br_clicked( self, widget ):
     print 'br clicked'
+
+  # button infos
+  def tl_info( self ):
+    return "tl button"
+
+  def tm_info( self ):
+    return "tm button"
+
+  def tr_info( self ):
+    return "tr button"
+
+  def bl_info( self ):
+    return "bl button"
+
+  def bm_info( self ):
+    return "bm button"
+
+  def br_info( self ):
+    return "br button"
 
 """
 ZZ: create a ButtonDescriptionWindow class
