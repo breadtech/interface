@@ -19,10 +19,14 @@ from BreadInterface.views.UnicodePickerView import UnicodePickerView
 #
 def generate_code( info ):
   # gogogogo
-  y = '##\n# @file %s.py\n# @author <your name here>\n# @brief <Controller description>\n#\n\n' % info['title']
+  y  = '#!/usr/bin/env python\n# -*- coding: utf-8 -*-\n'
+  y += '##\n# @file %s.py\n# @author <your name here>\n# @brief <Controller description>\n#\n\n' % info['title']
   y += 'import pygtk\npygtk.require(\'2.0\')\nimport gtk\n\n'
-  y += 'from BreadInterface import Controller\n\n'
+  y += 'from BreadInterface import *\n\n'
   y += 'class %s( Controller ):\n' % info['title']
+  y += '  class MyView( Lifecycle, gtk.HBox ):\n' 
+  y += '    def __init__( self ):\n'
+  y += '      gtk.HBox.__init__( self )\n'
   y += '  #\n  # Button Labels\n  #\n'
   y += '  def tl_label( self ):\n    return \'%s\'\n' % info['tl_label']
   y += '  def tr_label( self ):\n    return \'%s\'\n' % info['tr_label']
@@ -42,7 +46,15 @@ def generate_code( info ):
   y += '  def tr_info( self ):\n    return \'%s\'\n' % info['tr']
   y += '  def bl_info( self ):\n    return \'%s\'\n' % info['bl']
   y += '  def bm_info( self ):\n    return \'%s\'\n' % info['bm']
-  y += '  def br_info( self ):\n    return \'%s\'\n' % info['br']
+  y += '  def br_info( self ):\n    return \'%s\'\n\n' % info['br']
+  y += '  #\n  # Lifecycle methods\n  #\n'
+  y += '  def __init__( self ):\n    Controller.__init__( self, view=%s.MyView(), title=\'%s\' )\n' % (info['title'],info['title'])
+  y += '  def start( self ):\n    Controller.start(self)\n'
+  y += '  def update( self ):\n    Controller.update(self)\n'
+  y += '  def stop( self ):\n    Controller.stop(self)\n'
+  y += '  def cleanup( self ):\n    Controller.cleanup(self)\n\n'
+  y += 'if __name__ == \"__main__\":\n'
+  y += '  App(root=%s()).start()' % info['title']
   return y
 
 
