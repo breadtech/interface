@@ -82,6 +82,7 @@
 
 - (void)setupUI
 {
+    /*
     self.tl = self.noButton;
     self.br = self.closeButton;
     self.tr = self.doneButton;
@@ -89,6 +90,7 @@
     self.tableView.dataSource = self.infoLayout;
     
     [super setupUI];
+     */
 }
 
 - (void)doneButtonPressed:(id)sender
