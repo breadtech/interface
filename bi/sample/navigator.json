@@ -1,0 +1,82 @@
+{
+  "root": "MainController",
+  "MainController": [
+    {
+      "type": "modal",
+      "controller": "FirstTimeController",
+      "name": "first-time"
+    },
+    {
+      "type": "push",
+      "controller": "SemesterListController",
+      "name": "view-semesters"
+    },
+    {
+      "type": "push",
+      "controller": "CourseListController",
+      "name": "view-courses"
+    }
+  ],
+  "SemesterListController": [
+    {
+      "type": "modal",
+      "controller": "SemesterAddController",
+      "name": "add-semester"
+    },
+    {
+      "type": "push",
+      "controller": "SemesterInfoController",
+      "name": "view-semester-info"
+    },
+    {
+      "type": "push",
+      "controller": "CourseListController",
+      "name": "view-courses"
+    },
+    {
+      "type": "push",
+      "controller": "SettingsController",
+      "name": "settings"
+    }
+
+  ],
+  "CourseListController": [
+    {
+      "type": "push",
+      "controller": "SemesterInfoController",
+      "name": "view-semester-info"
+    },
+    {
+      "type": "modal",
+      "controller": "CourseAddController",
+      "name": "add-course"
+    },
+    {
+      "type": "push",
+      "controller": "CourseInfoController",
+      "name": "view-course-info"
+    },
+    {
+      "type": "push",
+      "controller": "AssignmentListController",
+      "name": "view-assignments"
+    }
+  ],
+  "AssignmentListController": [
+    {
+      "type": "push",
+      "controller": "CourseInfoController",
+      "name": "view-course-info"
+    },
+    {
+      "type": "modal",
+      "controller": "AssignmentAddController",
+      "name": "add-assignment"
+    },
+    {
+      "type": "push",
+      "controller": "AssignmentInfoController",
+      "name": "view-assignment-info"
+    },
+  ],
+}
