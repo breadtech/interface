@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 breadtech. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @interface UnicodeDictionary : NSObject
 
 + (NSDictionary *)dictionary;

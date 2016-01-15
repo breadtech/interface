@@ -1,0 +1,6 @@
+{
+        "app": "BreadGrader",
+    "version": "0.1",
+  "platforms": ["ios","android","pygtk"],
+ "dimensions": [(320,480),(640,960),(600,400),(1024,480)]
+}

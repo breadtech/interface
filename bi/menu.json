@@ -1,0 +1,15 @@
+{
+  "init": {
+    
+  },
+  "start": {
+  },
+  "update": {
+  },
+  "help": {
+    "help": "------------------------------------------------------------------------------\n BreadInterface: usage: bi <command> <args> ...\n commands: init, start, update, help\n try: bi help init\n -------------------------------------------------------------------------------",
+    "init": "-------------------------------------------------------------------------------\n bi: help: init:\n creates a BreadInterface component by writing it into the proper config file\n arg1: app, nav, controllers, views, layouts\n arg2: a name for the component\n example: bi init app BreadGrader\n -------------------------------------------------------------------------------",
+    "start": "------------------------------------------------------------------------------\n bi: help: start:\n runs the app or a specified component\n arg1 (optional): name of a component\n -------------------------------------------------------------------------------",
+    "update": "------------------------------------------------------------------------------\n bi: help: update\n updates some property of some component\n arg1: name of component\n arg2: a property from arg1\n arg3: the value to change arg2 to\n -------------------------------------------------------------------------------"
+  }
+}

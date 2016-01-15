@@ -11,67 +11,48 @@
 
 @interface BIViewController : UIViewController
 
+//
+// convenience properties/methods
+//
+
 @property (nonatomic, weak) id<UIApplicationDelegate> appDelegate;
-@property (nonatomic, strong) BIShareableItem *shareableItem;
+- (void)pop;
+- (void)push:(UIViewController *)vc;
 
-// main control buttons
-@property (nonatomic, strong) UIBarButtonItem *tl;
-@property (nonatomic, strong) UIBarButtonItem *tr;
-@property (nonatomic, strong) UIBarButtonItem *bl;
-@property (nonatomic, strong) UIBarButtonItem *br;
-@property (nonatomic) BOOL wantBottomMiddleButton;
+//
+// BreadInterface Button Layout
+//
 
-// UIBarButtonItem convenience properties
-@property (nonatomic, strong) UIBarButtonItem *addButton;
-@property (nonatomic, strong) UIBarButtonItem *archiveButton;
-@property (nonatomic, strong) UIBarButtonItem *backButton;
-@property (nonatomic, strong) UIBarButtonItem *bottomMiddleButton;
-@property (nonatomic, strong) UIBarButtonItem *cancelButton;
-@property (nonatomic, strong) UIBarButtonItem *closeButton; 
-@property (nonatomic, strong) UIBarButtonItem *deleteButton;
-@property (nonatomic, strong) UIBarButtonItem *doneButton;
-@property (nonatomic, strong) UIBarButtonItem *helpButton;
-@property (nonatomic, strong) UIBarButtonItem *infoButton;
-@property (nonatomic, strong) UIBarButtonItem *menuButton;
-@property (nonatomic, strong) UIBarButtonItem *noButton; // a blank button
-@property (nonatomic, strong) UIBarButtonItem *searchButton;
-@property (nonatomic ,strong) UIBarButtonItem *settingsButton;
-@property (nonatomic, strong) UIBarButtonItem *shareButton;
+// labels
+@property (nonatomic, readonly) NSString *tl_label;
+@property (nonatomic, readonly) NSString *tm_label; // the title
+@property (nonatomic, readonly) NSString *tr_label;
+@property (nonatomic, readonly) NSString *bl_label;
+@property (nonatomic, readonly) NSString *bm_label;
+@property (nonatomic, readonly) NSString *br_label;
 
-// calls:
-- (void)addButtonPressed:(id)sender;
-- (void)archiveButtonPressed:(id)sender;
-- (void)backButtonPressed:(id)sender;
-- (void)bottomMiddleButtonPessed:(id)sender;
-- (void)cancelButtonPressed:(id)sender;
-- (void)closeButtonPressed:(id)sender;
-- (void)deleteButtonPressed:(id)sender;
-- (void)doneButtonPressed:(id)sender;
-- (void)helpButtonPressed:(id)sender;
-- (void)infoButtonPressed:(id)sender;
-- (void)menuButtonPressed:(id)sender;
-- (void)settingsButtonPressed:(id)sender;
-- (void)searchButtonPressed:(id)sender;
-- (void)searchButtonLongPressed:(id)sender;
-- (void)shareButtonPressed:(id)sender;
+// action
+- (void)tl_clicked:(id)button;
+- (void)tm_clicked:(id)button; // the help view
+- (void)tr_clicked:(id)button;
+- (void)bl_clicked:(id)button;
+- (void)bm_clicked:(id)button;
+- (void)br_clicked:(id)button;
 
-// lifecycle methods
-- (id)init;         // this view controller is best used without a storyboard or xib, just use init
-- (void)setupModel; // abstract: setup your own model
-- (void)setupUI;    // call super at the end
+// colors
+@property (nonatomic, readonly) UIColor *fg;
+@property (nonatomic, readonly) UIColor *bg;
 
-// by convention, the model should update first and then the UI
-- (void)updateModel;// call whenever you want to fetch ui data into your model
-- (void)updateUI;   // call whenever your model is updated
-
-// only call this method
+//
+// BreadInterface Lifecycle
+//
+- (id)init;
+- (void)start;
+- (void)resume;
+- (void)update;
+- (void)clear;
+- (void)pause;
+- (void)stop;
 - (void)cleanup;
-
-// override these and call super
-- (void)cleanupUI;
-- (void)cleanupModel;
-
-// toolbar methods
-
 
 @end

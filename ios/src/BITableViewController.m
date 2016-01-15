@@ -53,14 +53,14 @@
 {
     [self.view addSubview: self.tableView];
     
-    [super setupUI];
+    //[super setupUI];
 }
 
 - (void)updateUI
 {
     [self.tableView reloadData];
     
-    [super updateUI];
+    //[super updateUI];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -1,0 +1,35 @@
+BI is a project to standardized UI's. 
+If the complexity of designing and developing UI's can be simplified, perhaps there can be
+  more focused placed on refining the data modeling and logic aspect of the application.
+If the complexity behind learning UI's can be simplified, perhaps the community surrounding 
+  the application can become more proficient in its usage and provision of feedback. 
+However, the philosophy of interfacing stretches beyond the visual element.
+Ultimately, my vision is to see software across different domains being able to interface
+  with each other.
+
+The concept that I focused on in the senior year of my bachelor degree years was the button layout.
+>> bars placed on top, middle, bottom each containing buttons on the left, center, and right sides <<
+I realized that the the layout of these buttons really only solve the navigation the portion of user-interfaces.
+The tendency is that actions performed from the button layout will transition into some other menu.
+The most common actions I tend to surmise are: settings, help, add, cancel, back, done, edit, and share. 
+But aren't those actually the most common actions taken in the usage of software?
+The main challenge that lays before me in the current state of BI is to formalize and justify the button layout. 
+Why is it necessary? How does it make things easier? Is there any scientific evidence to back that up?
+
+I tried to formalize the idea of the lifecycle but that was a really roughly designed concept.
+>> init, start, run, update, clear, stop, cleanup <<
+It makes sense within the context of actually rendering the button layout on a window,
+  but it's going to be a challenge to prove its effectiveness across most, if not all, application domains.
+Actually, run() doesn't really apply to the button layout. It's better suited for continuous task.
+Well, then I guess that's one distinction that has to be made: continuous vs discrete tasks.
+There are certain menus where data has to be constantly refreshed in order to provide meaningful context.
+
+Before we can formalize the lifecycle, we have to categorize, organize, and define ui elements that
+  can apply across most, if not all, application domains.
+But before can consider ui elements, we have to categorize, organize, and define the different screen
+  sizes that currently exist in the tech space.
+On the grand scale of things, formalizing BI will require the development of a well-defined ontology of UI's.
+There already exists publications on such a topic and SAP seems to be dominating figure here.
+Finally, what is the distinction that I'd like to make between windows and screens?
+That, BK, is the right question.
+

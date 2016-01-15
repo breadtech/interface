@@ -36,9 +36,9 @@
 {
     [self.view addSubview: self.webView];
     
-    self.tr = self.br = self.bl = self.noButton;
+    // self.tr = self.br = self.bl = self.noButton;
     
-    [super setupUI];
+    // [super setupUI];
 }
 
 - (void)setupModel
@@ -50,7 +50,7 @@
 {
     self.webView = nil;
     
-    [super cleanupUI];
+    // [super cleanupUI];
 }
 
 - (void)cleanupModel
