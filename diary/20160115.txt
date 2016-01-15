@@ -1,0 +1,31 @@
+new year, new opportunities.
+bi is no exception.
+i severely neglected this project during the fall semester but it's just spilt milk.
+time to make up for it this semester.
+
+i wish to propose bi as yet another senior project to the upcoming class at vu.
+except i definitely need to focus on a specific topic.
+after reading my diary entries from june (which btw, quite a while ago, and what a clown i am...)
+  it seems like i want to focus on this distinction between screens and windows.
+additionally, i wanted to bring more attention to the lifecycle.
+i feel like there's a lot of potential there but it's also going to require significant research
+  to find a good direction for that aspect of bi.
+
+but to also talk about some bi work that i've done over the past few months...
+i came across the google material design icons and they are a really great set of images
+  that one could use for an app of any platform: web, ios, android, etc...
+i wrote a small bash script that would pull all these icons and put them in the /var directory
+  of a linux fs.
+seemed like nice little module that would come in handy and hopefully find its place in bi...
+
+what else...
+i mean, i'm trying to propose this as a senior design topic so my priority right now
+  is to find a good line of work that the juniors could do some research on this semester
+  and work on during the next.
+perhaps that screens vs windows thing could be a starting point...
+  resolutions must also be considered...
+  dpi's as well...
+  physical size...
+  screen-types: desktop, tablet, phone, wearable..
+
+that's enough for now...
