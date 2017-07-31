@@ -5,7 +5,7 @@ If the complexity behind learning UI's can be simplified, perhaps the community 
   the application can become more proficient in its usage and provision of feedback. 
 However, the philosophy of interfacing stretches beyond the visual element.
 Ultimately, my vision is to see software across different domains being able to interface
-  with each other.
+with each other.
 
 The concept that I focused on in the senior year of my bachelor degree years was the button layout.
 >> bars placed on top, middle, bottom each containing buttons on the left, center, and right sides <<
@@ -13,11 +13,20 @@ I realized that the the layout of these buttons really only solve the navigation
 The tendency is that actions performed from the button layout will transition into some other menu.
 The most common actions I tend to surmise are: settings, help, add, cancel, back, done, edit, and share. 
 But aren't those actually the most common actions taken in the usage of software?
-The main challenge that lays before me in the current state of BI is to formalize and justify the button layout. 
+The main challenge that lies before me in the current state of BI is to formalize and justify the button layout. 
 Why is it necessary? How does it make things easier? Is there any scientific evidence to back that up?
 
 I tried to formalize the idea of the lifecycle but that was a really roughly designed concept.
->> init, start, run, update, clear, stop, cleanup <<
+>> init, start, update, clear, stop, cleanup <<
+states: dead, clean, paused, running
+
+init: dead -> clean/paused
+start(hz): paused -> running(hz): calls update every 1/hz seconds
+update: running: tprev = t; t++; update_state(tprev, t)
+clear: running -> clean/running
+stop: running -> paused
+cleanup: paused -> dead
+
 It makes sense within the context of actually rendering the button layout on a window,
   but it's going to be a challenge to prove its effectiveness across most, if not all, application domains.
 Actually, run() doesn't really apply to the button layout. It's better suited for continuous task.

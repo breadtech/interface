@@ -1,0 +1,71 @@
+{
+  "index": {
+    "course_list": {
+      "help": {},
+      "settings": {},
+      "semester_list": { 
+        "semester_info": {},
+        "semester_add": {}
+      },
+      "add_course": {},
+      "course_info": {
+        "course_add": {},
+        "criteria_info": {
+          "criteria_add": {},
+          "assignment_info": {
+            "assignment_add": {}
+  } } } } },
+  "course_list": {
+    "title": "str:BreadGrader",
+    "layout": {
+      "tl": ["ic:help", "str:get more help"],
+      "tr": ["ic:settings", "str:configure options"],
+      "bl": ["ic:list", "str:view semester list"],
+      "bm": ["fmt:active GPA: (%.2f%%|NG)", "str:toggle visual view"],
+      "br": ["ic:add", "str:add a course"],
+    },
+    "segues": ["modal:help", "modal:settings", "modal:archive_list", "modal:add_course", "push:course_info"],
+  },
+  "help": {
+    "layout": {
+      "tl": ["ic:close", "str:go back"]
+    }
+  },
+  "settings": {
+    "tr": ["ic:close", "str:go back"]
+  },
+  "semester_list": {
+    "title": "str:Semester List",
+    "states": ["0:edit", "1:view"],
+    "tr": ["ic:edit", "str:toggle edit"],
+    "bl": ["ic:close", "str:go back"],
+    "bm": ["fmt:Cumulative GPA: (%.2f%%|NG)", "str:toggle visual view"],
+    "br": ["ic:add", "str:add a semester"]
+  },
+  "add_course": {
+    "title": "str:Add Course",
+    "states": ["0:edit", "1:verifying", "1:saving", "2:successful", "3:failure"],
+    "tl": ["ic:close", "str:go back"],
+    "tr": ["ic:done", "str:post data"]
+  },
+  "course_info": {
+    "title": "var:course_title",
+    "tl": "ic:back",
+    "tr": "ic:details",
+    "bl": "ic:share",
+    "bm": "fmt:%s average: (%.2f%%|NG)",
+    "br": "ic:add"
+  },
+  "criteria_info": {
+    "title": "var:criteria_name",
+    "tl": "ic:back",
+    "tr": "ic:details",
+    "bl": "ic:share",
+    "bm": "fmt:%s %s average: (%.2f%%|NG)",
+    "br": "ic:add"
+  },
+  "assignment_info": {
+    "title": "var:assignment_name",
+    "tl": "ic:back", 
+  }
+}

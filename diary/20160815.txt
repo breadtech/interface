@@ -1,0 +1,3 @@
+BreadInterface
+- every app shall have a button to access the logs and a prompt into the main program
+

@@ -11,8 +11,7 @@ Basics: The Button
 
 The core philosophy of BreadInterface is the importance of a Button. 
 Buttons have a label and perform an action when clicked. 
-The definition of the content and functionality of all buttons 
- is decided by the programmer. 
+The definition of the content and functionality of all buttons is decided by the programmer. 
 Another fundamental philosophy of BreadInterface is that learning how 
  write apps is a relatively easy task for any individual who is 
  willing to commit his/her time and effort (min. 1 hr/day) in the craft.
@@ -55,6 +54,58 @@ From here onward will be a step-by-step guide on how to develop BreadGrader (ult
 using the Python programming language.
 
 For Developers (or Brave Users)
+
+The button layout is defined in a Navigation object expressed as JSON:
+```JSON
+{
+  "root": "ctrl:course_list",
+  "course_list": {
+    "title": "str:BreadGrader",
+    "tl": ["ic:help", "str:get more help"],
+    "tr": ["ic:settings", "str:configure options"],
+    "bl": ["ic:archive", "str:view archived courses"],
+    "bm": ["fmt:active GPA: (%.2f%%|NG)", "str:toggle visual view"],
+    "br": ["ic:add", "str:add a course"],
+    "segues": ["modal:help", "modal:settings", "modal:archive_list", "modal:add_course", "push:course_info"]
+  },
+
+  "help": {
+    "tl": "ic:close"
+  },
+  "settings": {
+    "tr": "ic:close"
+  },
+  "archive_list": {
+    "title": "str:BreadArchive",
+    "tl": "ic:help",
+    "tr": "ic:settings",
+    "bl": "ic:close",
+    "bm": "fmt:archived GPA: (%.2f%%|NG)",
+    "br": "ic:add"
+  },
+  "add_course": {
+    "title": "str:Add Course",
+    "tl": "ic:close",
+    "tr": "ic:done"
+  },
+  "course_info": {
+    "title": "var:course_title",
+    "tl": "ic:back",
+    "tr": "ic:details",
+    "bl": "ic:share",
+    "bm": "fmt:%s average: (%.2f%%|NG)",
+    "br": "ic:add"
+  },
+  "criteria_info": {
+    "title": "var:criteria_name",
+    "tl": "ic:back",
+    "tr": "ic:details",
+    "bl": "ic:share",
+    "bm": "fmt:%s %s average: (%.2f%%|NG)",
+    "br": "ic:add"
+  }
+}
+```
 
 More On Buttons:
 
