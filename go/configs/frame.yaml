@@ -1,0 +1,35 @@
+apiVersion: interface.breadtech.com/v1
+kind: Controller
+metadata:
+  name: example
+spec:
+  main:
+    flow: "tb"
+    subviews: 
+    - kind: bar
+      flow: "lr"
+      buttons:
+      - text: "#"
+        onclick: "clicked"
+      - text: breadinterface
+        onclick: "clicked"
+        weight: 8
+      - text: "tr"
+        onclick: "clicked"
+
+    - weight: 3
+      direction: "tb"
+      subviews:
+      - kind: text
+        text: "far out brah"
+
+    - kind: bar
+      flow: "lr"
+      buttons:
+      - text: "bl"
+        onclick: "clicked"
+      - text: "bm"
+        onclick: "clicked"
+        weight: 8
+      - text: "br"
+        onclick: "clicked"

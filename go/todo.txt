@@ -1,0 +1,3 @@
+logging
+hook up callback on button press
+hook up input (vim keys)
