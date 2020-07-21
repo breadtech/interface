@@ -1,4 +1,4 @@
-module breadinterface
+module breadtech/interface
 
 go 1.13
 
